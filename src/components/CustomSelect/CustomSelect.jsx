@@ -1,15 +1,15 @@
-import styled from "styled-components";
+import styles from "./CustomSelect.module.scss";
 
 import Select from "react-select";
 
-export const CustomSelect = styled(Select).attrs({
-  styles: {
+export const CustomSelect = (props) => {
+  const customStyles = {
     control: (provided) => ({
       ...provided,
       backgroundColor: "var(--colors-ui-base)",
       color: "var(--colors-text)",
       borderRadius: "var(--radii)",
-      padding: "0.25rem",
+      padding: "4px",
       border: "none",
       boxShadow: "var(--shadow)",
       height: "50px",
@@ -22,26 +22,20 @@ export const CustomSelect = styled(Select).attrs({
         ? "var(--colors-bg)"
         : "var(--colors-ui-base)",
     }),
-  },
-})`
-  width: 200px;
-  border-radius: var(--radii);
-  font-family: var(--family);
-  border: none;
+  };
 
-  & > * {
-    box-shadow: var(--shadow);
-  }
-
-  & input {
-    padding-left: 0.25rem;
-  }
-
-  & * {
-    color: var(--colors-text) !important;
-  }
-
-  & > div[id] {
-    background-color: var(--colors-ui-base);
-  }
-`;
+  return (
+    <div>
+      <Select
+        styles={customStyles}
+        className={styles.customSelect}
+        options={props.options}
+        placeholder={props.placeholder}
+        isClearable={props.isClearable}
+        isSearchable={props.isSearchable}
+        value={props.value}
+        onChange={props.onChange}
+      />
+    </div>
+  );
+};

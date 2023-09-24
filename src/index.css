@@ -13,7 +13,7 @@
   --fw-normal: 600;
   --fw-bold: 800;
 
-  --radii: 0.5rem;
+  --radii: 8px;
 }
 
 body[data-theme="dark"] {
@@ -43,5 +43,21 @@ body {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 32px;
+}
+
+.button {
+  padding: 0 16px;
+  background-color: var(--colors-ui-base);
+  box-shadow: var(--shadow);
+  line-height: 2.5;
+  border-radius: var(--radii);
+
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--color-text);
+  cursor: pointer;
 }
