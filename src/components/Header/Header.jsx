@@ -1,16 +1,20 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { IoMoon, IoMoonOutline } from "react-icons/io5";
 import { setTheme } from "../../store/theme/theme-actions";
+import { clearControls } from "../../store/controls/controls-actions";
 
 export const Header = () => {
-  const dipatch = useDispatch();
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
 
   const toggleTheme = () => {
-    dipatch(setTheme(theme === "light" ? "dark" : "light"));
+    dispatch(setTheme(theme === "light" ? "dark" : "light"));
   };
+
+  const cleanUp = () => dispatch(clearControls());
 
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
@@ -20,7 +24,9 @@ export const Header = () => {
     <header className={styles.header}>
       <div className="container">
         <div className={styles.wrapper}>
-          <p className={styles.title}>Where is the world?</p>
+          <Link to={"/"} onClick={cleanUp} className={styles.title}>
+            Where is the world?
+          </Link>
           <div className={styles.modeSwitcher} onClick={toggleTheme}>
             {theme === "light" ? (
               <IoMoonOutline size="14px" />
