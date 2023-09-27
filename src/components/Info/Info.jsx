@@ -1,4 +1,8 @@
+import { useEffect } from "react";
+import { selectNeighbors } from "../../store/details/details-selectors";
 import styles from "./Info.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { loadNeighborsByBorder } from "../../store/details/details-actions";
 
 export const Info = (props) => {
   const {
@@ -15,6 +19,15 @@ export const Info = (props) => {
     borders = [],
     push,
   } = props;
+
+  const dispatch = useDispatch();
+  const neighbors = useSelector(selectNeighbors);
+
+  useEffect(() => {
+    if (borders.length) {
+      dispatch(loadNeighborsByBorder(borders));
+    }
+  }, [dispatch, borders]);
 
   return (
     <div className={styles.info}>
@@ -73,7 +86,7 @@ export const Info = (props) => {
             <span>There is no border countries</span>
           ) : (
             <div className={styles.infoTagGroup}>
-              {[].map((b) => (
+              {neighbors.map((b) => (
                 <span
                   className={styles.infoTag}
                   key={b}
