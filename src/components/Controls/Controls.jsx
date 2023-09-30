@@ -2,8 +2,9 @@ import styles from "./Controls.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { Search } from "../Search";
 import { CustomSelect } from "../CustomSelect";
-import { selectRegion } from "../../store/controls/controls-selectors";
-import { setRegion } from "../../store/controls/controls-actions";
+// import { selectRegion } from "../../store/controls/controls-selectors";
+// import { setRegion } from "../../store/controls/controls-actions";
+import { selectRegion, setRegion } from "../../features/controls-slice";
 
 const optionsMap = {
   Africa: { value: "Africa", label: "Africa" },

@@ -1,8 +1,9 @@
 import styles from "./Search.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { IoSearch } from "react-icons/io5";
-import { selectSearch } from "../../store/controls/controls-selectors";
-import { setSearch } from "../../store/controls/controls-actions";
+// import { selectSearch } from "../../store/controls/controls-selectors";
+// import { setSearch } from "../../store/controls/controls-actions";
+import { setSearch, selectSearch } from "../../features/controls-slice";
 
 export const Search = () => {
   const dispatch = useDispatch();

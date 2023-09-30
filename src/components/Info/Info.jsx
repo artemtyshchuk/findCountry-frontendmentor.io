@@ -1,8 +1,12 @@
 import { useEffect } from "react";
-import { selectNeighbors } from "../../store/details/details-selectors";
+// import { selectNeighbors } from "../../store/details/details-selectors";
 import styles from "./Info.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { loadNeighborsByBorder } from "../../store/details/details-actions";
+// import { loadNeighborsByBorder } from "../../store/details/details-actions";
+import {
+  loadNeighborsByBorder,
+  selectNeighbors,
+} from "../../features/details-slice";
 
 export const Info = (props) => {
   const {

@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { IoMoon, IoMoonOutline } from "react-icons/io5";
-import { setTheme } from "../../store/theme/theme-actions";
-import { clearControls } from "../../store/controls/controls-actions";
+// import { setTheme } from "../../store/theme/theme-actions";
+import { setTheme } from "../../features/theme-slice";
+// import { clearControls } from "../../store/controls/controls-actions";
+import { clearControls } from "../../features/controls-slice";
 
 export const Header = () => {
   const dispatch = useDispatch();

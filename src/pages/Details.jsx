@@ -2,15 +2,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { IoArrowBack } from "react-icons/io5";
 import { Info } from "../components/Info/Info";
-import {
-  selectCurrentCountry,
-  selectDetails,
-} from "../store/details/details-selectors";
 import { useEffect } from "react";
-import {
-  clearDetails,
-  loadCountryByName,
-} from "../store/details/details-actions";
+// import {
+//   selectCurrentCountry,
+//   selectDetails,
+// } from "../store/details/details-selectors";
+// import {
+//   clearDetails,
+//   loadCountryByName,
+// } from "../store/details/details-actions";
+import { clearDetails, loadCountryByName } from "../features/details-slice";
+import { selectCurrentCountry, selectDetails } from "../features/details-slice";
 
 export const Details = () => {
   const { name } = useParams();

@@ -4,12 +4,18 @@ import { useEffect } from "react";
 import { Controls } from "../components/Controls";
 import { List } from "../components/List/List";
 import { Card } from "../components/Card/Card";
+// import {
+//   selectCountriesInfo,
+//   selectVisibleCountries,
+// } from "../store/countries/countries-selectors";
+// import { loadCountries } from "../store/countries/countries-actions";
 import {
+  loadCountries,
   selectCountriesInfo,
   selectVisibleCountries,
-} from "../store/countries/countries-selectors";
-import { loadCountries } from "../store/countries/countries-actions";
-import { selectControls } from "../store/controls/controls-selectors";
+} from "../features/countries-slice";
+// import { selectControls } from "../store/controls/controls-selectors";
+import { selectControls } from "../features/controls-slice";
 
 export const HomePage = () => {
   const navigate = useNavigate();
